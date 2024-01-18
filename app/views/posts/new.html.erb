@@ -1,0 +1,20 @@
+<%=form_with model: @post do |form| %>
+
+<%if @post.errors.any?%>
+        <%@post.errors.each do |error|%>
+        <h1 style="color:red;" ><%= error.full_message%></h1>
+            <%end%>
+        <%end%>
+        
+ <%= form.label :title%>
+ <%= form.text_field :title%>
+
+    <%=form.label :description%>
+    <%=form.text_field :description%>
+
+    <%= form.text_field :user_id, value:current_user.id %>
+
+    
+    <%= form.submit "Criar novo Post"%>
+<%end%>
+  
